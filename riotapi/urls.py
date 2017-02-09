@@ -20,7 +20,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.views.generic import TemplateView
 
-from riotapi.views import LStatRuneView
+from riotapi.views import LStatRuneView, RunePageView
 
 """
     lolstat.urls
@@ -29,6 +29,7 @@ from riotapi.views import LStatRuneView
 
 urlpatterns = [
     url(r'^$', LStatRuneView.as_view()),
+    url(r'^/viewtest/', RunePageView.as_view()),
     # url(r'^$', TemplateView.as_view(template_name="index.jade")),
     
 ]

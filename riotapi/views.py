@@ -10,6 +10,8 @@ from common.restapi import Resp
 from common.auth import CsrfAuthentication
 from riotapi.serializer import RiotApiRuneParamSerializer
 
+from common.view import TemplateViewWithCsrf
+
 # Create your models here.
 
 class RiotApiView(APIView):
@@ -46,3 +48,17 @@ class LStatRuneView(RiotApiView):
                 "value": queryResult
             }
         
+
+
+
+
+#--------------------------------------------
+# Template View
+#--------------------------------------------
+class RunePageView(TemplateViewWithCsrf):
+    template_name = "runpage-consensus.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(RunePageView, self).get_context_data(**kwargs)
+        return context
+
